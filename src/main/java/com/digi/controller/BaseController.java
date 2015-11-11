@@ -32,7 +32,7 @@ public class BaseController {
             // copy it to response's OutputStream
             org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());*/
             response.flushBuffer();
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             //log.info("Error writing file to output stream. Filename was '{}'", fileName, ex);
             throw new RuntimeException("IOError writing file to output stream");
         }
