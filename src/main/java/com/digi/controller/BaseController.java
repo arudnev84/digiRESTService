@@ -22,6 +22,18 @@ public class BaseController {
 
     }
 
+    @RequestMapping("/excel")
+    public void  generateExcel(HttpServletResponse response) {
+        try {
+            response.setContentType("text/csv");
+            response.setHeader("Content-Disposition", "filename=\"file.csv\"");
+            response.getWriter().print("test, test, test");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     @RequestMapping(value = "/files/{file_name}", method = RequestMethod.GET)
     public void getFile(
             @PathVariable("file_name") String fileName,
